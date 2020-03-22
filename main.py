@@ -30,7 +30,7 @@ print("""
 """)
 
 def sniffed_packet(packet):
-    if packet.haslayer(scapy.ARP) and packet[scapy.ARP].op:
+    if packet.haslayer(scapy.ARP) and packet[scapy.ARP].op == 2:
         try:
             mac = get_mac_address(packet[scapy.ARP].psrc)
             res = packet[scapy.ARP].hwsrc
